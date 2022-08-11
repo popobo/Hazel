@@ -7,3 +7,5 @@
 // ----ENTRY POINT----
 #include "Hazel/EntryPoint.h"
 // -------------------
+
+#include "Hazel/Log.h"
