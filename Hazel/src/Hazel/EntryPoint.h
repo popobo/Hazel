@@ -10,7 +10,7 @@ extern Hazel::Application* Hazel::CreateApplication();
 
 int main(int argc, char** argv) {
 	Hazel::Log::Init();
-	HZ_CLIENT_ERROR("init log!");
+	HZ_ERROR("init log!");
 	HZ_CORE_INFO("init log! = {0}", 11);
 
 	printf("Hazel Entry Point!");
