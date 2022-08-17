@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Application.h"
-#include <stdio.h>
 #include "Log.h"
 
 #ifdef HZ_PLATFORM_WINDOWS
