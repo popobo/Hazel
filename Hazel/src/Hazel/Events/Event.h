@@ -1,5 +1,6 @@
 #pragma once
 
+#include "hzpch.h"
 #include "Hazel/Core.h"
 
 namespace Hazel {
@@ -28,6 +29,7 @@ namespace Hazel {
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return EventCategory::##category; }
 
 	class HAZEL_API Event {
+		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
@@ -51,7 +53,7 @@ namespace Hazel {
 
 		template<typename T>
 		bool Dispatch(EventFn<T> func) {
-			if (m_Event.GetEventType == T::GetStaticType()) {
+			if (m_Event.GetEventType() == T::GetStaticType()) {
 				m_Event.m_Handled = func(*(T*)&m_Event);
 				return true;
 			}
